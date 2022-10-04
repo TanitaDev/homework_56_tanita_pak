@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Все товары{% endblock %}
 <body>
-
+{% block categories%}Категории{% endblock %}
+{% block page_title %}
+Товары
+<form action="#" method="get">
+    <input type="text" name="search">
+    <button type="submit">Search</button>
+</form>
+{% endblock %}
+{% block products %}
+{% for product in products %}
+<div class="product_block">
+    <div class="img_block">
+        <img src="{{product.image}}" alt="">
+    </div>
+    <div class="content_block">
+        <b>{{product.name}}</b>
+        <p>Категория: {{product.get_category_display}}</p>
+        <b>Цена: {{product.price}} $</b>
+        <a class="more_link" href="">Посмотреть больше..</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
 </body>
 </html>

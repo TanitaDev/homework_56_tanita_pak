@@ -13,7 +13,7 @@ class Product(models.Model):
         (OTHER, 'разное'),
         (SMARTPHONES, 'смартфоны'),
         (CLOTHES, 'одежда'),
-        (HOME, 'для дома'),
+        (HOME, 'товары для дома'),
         (COMPUTERS, 'компьютеры'),
     ]
 
@@ -21,5 +21,5 @@ class Product(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name="Описание товара")
     image = models.URLField(verbose_name="Изображение товара")
     category = models.CharField(verbose_name="Категория товара", max_length=10, choices=CATEGORY_CHOICES, default=OTHER)
-    remainder = models.IntegerField(verbose_name="Остаток от товара",)
+    remainder = models.PositiveIntegerField(verbose_name="Остаток от товара",)
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Стоимость товара")
