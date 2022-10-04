@@ -46,3 +46,20 @@ def product_add_view(request):
         price = request.POST.get("price")
         Product.objects.create(name=name, description=description, image=image, category=category, remainder=remainder, price=price)
         return redirect('/')
+
+
+def product_edit_view(request, pk):
+    products = get_object_or_404(Product, pk=pk)
+    if request.method == "GET":
+        context = {
+            "products": products
+        }
+        return render(request, 'edit.html', context)
+    elif request.method == "POST":
+        products.name = request.POST.get("name")
+        products.description = request.POST.get("description")
+        products.image = request.POST.get("image")
+        products.remainder = request.POST.get("remainder")
+        products.price = request.POST.get("price")
+        products.save()
+        return redirect('/')

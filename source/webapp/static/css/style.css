@@ -18,7 +18,7 @@ a {
 
 .products_container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
 }
 
@@ -163,6 +163,7 @@ nav {
     font-size: 15px;
     margin-right: 10px;
     border-radius: 5px;
+    margin-top: 15px;
 }
 
 .delete_btn {
