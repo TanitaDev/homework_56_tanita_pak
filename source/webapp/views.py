@@ -21,9 +21,28 @@ def index_view(request):
         }
         return render(request, 'index.html', context)
 
+
 def single_product_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     context = {
         'product': product
     }
     return render(request, 'product.html', context)
+
+
+def product_add_view(request):
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    if request.method == "GET":
+        return render(request, "add_product.html", context)
+    elif request.method == "POST":
+        name = request.POST.get("name")
+        description = request.POST.get("description")
+        image = request.POST.get("image")
+        category = request.POST.get("category")
+        remainder = request.POST.get("remainder")
+        price = request.POST.get("price")
+        Product.objects.create(name=name, description=description, image=image, category=category, remainder=remainder, price=price)
+        return redirect('/')
