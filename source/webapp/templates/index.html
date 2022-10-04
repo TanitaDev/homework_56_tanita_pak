@@ -17,10 +17,10 @@
         <img src="{{product.image}}" alt="">
     </div>
     <div class="content_block">
-        <b>{{product.name}}</b>
+        <a href="{% url 'product_view' product.pk %}"><b>{{product.name}}</b></a>
         <p>Категория: {{product.get_category_display}}</p>
         <b>Цена: {{product.price}} $</b>
-        <a class="more_link" href="">Посмотреть больше..</a>
+        <a class="more_link" href="{% url 'product_view' product.pk %}">Посмотреть больше..</a>
     </div>
 </div>
 {% endfor %}
