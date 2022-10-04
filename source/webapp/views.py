@@ -63,3 +63,12 @@ def product_edit_view(request, pk):
         products.price = request.POST.get("price")
         products.save()
         return redirect('/')
+
+
+def delete_product_view(request, pk):
+    products = get_object_or_404(Product, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'delete.html', context={'products': products})
+    elif request.method == 'POST':
+        products.delete()
+        return redirect('/')

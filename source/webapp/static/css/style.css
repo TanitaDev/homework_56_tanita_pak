@@ -7,6 +7,10 @@ a {
     text-decoration: none;
 }
 
+input {
+    cursor: pointer;
+}
+
 .wrapper {
     width:1120px;
     margin: 20px auto;
@@ -18,7 +22,7 @@ a {
 
 .products_container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -124,7 +128,7 @@ nav {
     font-size: 20px;
     color: #ffffff;
     padding: 20px 10px;
-    margin: 0;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -176,6 +180,7 @@ nav {
     display: inline-block;
     font-size: 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .submit_btn {
@@ -188,8 +193,15 @@ nav {
     display: inline-block;
     font-size: 15px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 .product_action_form {
     margin-top: 20px;
+}
+
+.delete_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
